@@ -1,0 +1,40 @@
+
+body{
+    width: 64%;
+    padding: 20px;
+    color: rgb(215, 211, 211);
+    box-sizing: border-box;
+    font-size: 30px;
+    background-color: rgb(33, 33, 35);
+    position: relative;
+    left: 18%;
+}
+a{
+    color: rgb(215, 211, 211);
+}
+a:link {
+    color: rgb(215, 211, 211);
+}
+a:visited {
+    color: rgb(156, 154, 154);
+}
+a:hover {
+    color: rgb(85, 82, 82);
+}
+button{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    font-size: 30px;
+    left: 0%;
+}
+#add_size{
+    top: 100px;
+}
+#sub_size{
+    top: 150px;
+}
+
+button:hover {
+    background-color: rgb(85, 82, 82);
+}
