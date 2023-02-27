@@ -32,6 +32,7 @@ Choosing to start a new book will delete the old one.
 ![](https://i.imgur.com/7nLIpFR.png)
 selenium 爬到該網站後，將每一章的連結存下來，之後再用 BeautifulSoup，將內容截下來。
 After scraping the target website using Selenium, the program saves the links to each chapter, and subsequently uses BeautifulSoup to extract their contents.
+
 ![](https://i.imgur.com/g8ASJpn.png)
 
 ![](https://i.imgur.com/VfsZevQ.png)
