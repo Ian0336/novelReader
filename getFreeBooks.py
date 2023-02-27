@@ -14,7 +14,6 @@ import hashlib
 import os
 import time
 import glob
-driver = webdriver.Edge(executable_path="D:\\edgedriver\\msedgedriver")
 k = PyKeyboard()
 m = PyMouse()
 bookName = ""
@@ -30,7 +29,7 @@ def chooseBook():
     global nowChapter
     global whetherReadOldOne
     global loadedChapter
-    with open("record.txt", 'r', encoding="utf-8") as f:
+    with open(".\\record.txt", 'r', encoding="utf-8") as f:
         text = f.readlines()
     bookName = text[0][0:-1]
     nowChapter = int(text[1][0:-1])
@@ -43,10 +42,11 @@ def finding():
     global nowChapter
     global allChapters
     driver.set_window_size(1552, 893)
+
     driver.get("https://www.google.com")
     query = driver.find_element("name", "q")
     query.send_keys(bookName)
-    query.send_keys("UU")
+    query.send_keys(" https://www.uukanshu.com/ ")
     query.send_keys(Keys.ENTER)
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.ID, "rcnt"))
@@ -57,7 +57,12 @@ def finding():
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.ID, "chapterList"))
     )
-
+    idx = driver.current_url.split("/")[-2]
+    print(idx)
+    driver.get(f"https://tw.uukanshu.com/b/{idx}/")
+    element = WebDriverWait(driver, 5).until(
+        EC.presence_of_element_located((By.ID, "chapterList"))
+    )
     allChapters = driver.find_elements(By.XPATH, "//ul[@id='chapterList']//a")
     allChapters.reverse()
     with open(f"url.txt", "w", encoding="utf-8") as f:
@@ -162,6 +167,7 @@ def loading(start):
 # main
 
 chooseBook()
+driver = webdriver.Edge(executable_path="D:\\edgedriver\\msedgedriver")
 if(whetherReadOldOne.lower() == "n"):
     bookName = input("請輸入小說名稱:")
     loadedChapter = 0

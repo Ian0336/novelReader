@@ -1,7 +1,7 @@
 const add = document.querySelector("#add_size");
 const sub = document.querySelector("#sub_size");
 const body = document.querySelector("#body");
-num = 30;
+num = 35;
 add.addEventListener("click", () => {
   num += 5;
   console.log(num);
@@ -9,6 +9,6 @@ add.addEventListener("click", () => {
 });
 
 sub.addEventListener("click", () => {
-  num -= 5;
+  if (num >= 5) num -= 5;
   body.style.fontSize = num + "px";
 });
